@@ -13,13 +13,11 @@
 }
 
 .spinner {
-  border: 4px solid rgba(0,0,0,0.1);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border-left-color: #f05a28; /* Use your theme color */
+  font-size: 48px; /* Adjust the size as needed */
+  color: #f05a28;  /* Theme color */
   animation: spin 1s linear infinite;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 @keyframes spin {
