@@ -59,6 +59,7 @@ export class SignupComponent {
   }
   constructor(private router: Router, private userService: UserService) {}
 
+  loading: boolean = false;
   signupError: string ='';
   errorMessage: any;
   onSubmit() {
@@ -66,14 +67,19 @@ export class SignupComponent {
       this.signupError = 'Please enter valid credentials.';
       return;
     }
-
+    this.loading = true;
     this.userService.userSignup(this.signupForm.value).subscribe({
       next: (response) => {
         console.log('Signup Successful: ', response);
-        this.router.navigate(['/main/signin'])
+        this.loading = false;
+        // this.router.navigate(['/main/signin'])
+        this.router.navigate(['/main/signin'], {
+          queryParams: { message: 'Your account has been created successfully.' }
+        });
       },
       error: (error) => {
         console.log('Signup Error: ', error);
+          this.loading = false;
           this.signupError = 'Signup Failed.';
           this.errorMessage = error.error.errors;   
       }

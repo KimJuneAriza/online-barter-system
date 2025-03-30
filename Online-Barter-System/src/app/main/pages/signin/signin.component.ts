@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -9,7 +9,8 @@ import { UserService } from '../../services/user.service';
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.css'
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit{
+
   signinForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
@@ -23,8 +24,19 @@ export class SigninComponent {
     return this.signinForm.get('password');
   }
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute) {}
 
+  signinMessage: string = '';
+  ngOnInit() {
+    // Read query parameters to see if there's a notification message
+    this.route.queryParams.subscribe(params => {
+      if (params['message']) {
+        this.signinMessage = params['message'];
+      }
+    });
+  }
+
+  loading: boolean = false;
   signinError: string = '';
   onSubmit() {
     if (this.signinForm.invalid) {
@@ -32,13 +44,17 @@ export class SigninComponent {
       return;
     }
 
+    this.loading = true;
+
     this.userService.userSignin(this.signinForm.value).subscribe({
       next: (response) => {
         console.log('Signin Successful: ', response);
+        this.loading = false;
         this.router.navigate(['/main/dashboard']);
       },
       error: (error) => {
         console.log('Signin Error: ', error);
+        this.loading = false;
         this.signinError = 'Invalid username or password.';
       }
     });
