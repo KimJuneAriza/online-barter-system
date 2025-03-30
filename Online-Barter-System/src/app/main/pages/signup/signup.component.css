@@ -1,0 +1,106 @@
+.container {
+    font-family: 'Arial', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+  }
+  .hero {
+    background: linear-gradient(135deg, #f05a28, #ec008c);
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    height: 50vh;
+  }
+  .hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  .hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  .signup-container {
+    width: 50%;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -36%);
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  .signup-container h1 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fafafa;
+    border: 2px solid #ec008c;
+  }
+  .input-icon {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .input-group input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+    outline: none;
+  }
+  .input-group input::placeholder {
+    color: #aaa;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 2px solid #f05a28;
+    color: #ec008c;
+    border-radius: 25px;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  .btn:hover {
+    background: linear-gradient(135deg, #f05a28, #ec008c);
+    color: #f9f9f9;
+  }
+  .error {
+    color: rgb(212, 5, 5);
+    font-size: 0.9em;
+    margin: 3px;
+  }
+  .signupError {
+    padding: 8px;
+    text-align: center;
+    color: #f9f9f9;
+    background-color: rgb(132, 19, 19);
+  }
+  .signin {
+    color: rgb(17, 17, 146);
+    cursor: pointer;
+  }
