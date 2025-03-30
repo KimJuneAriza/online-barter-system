@@ -1,0 +1,60 @@
+<div class="container">
+    <header class="hero">
+        <h1>Online Barter System</h1>
+        <p>Your ultimate online platform for hassle-free trading!</p>
+    </header>
+
+    <div class="signin-container">
+        <h1>Sign In to Your Account</h1>
+
+        <div>
+            <p class="signinError" *ngIf="signinError">{{signinError}}</p>
+        </div>
+
+        <form class="signin-form" [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-group">
+                    <span class="input-icon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input
+                        type="text"
+                        id="username"
+                        formControlName="username"
+                        placeholder="Enter your username"
+                        required
+                    />
+                </div>
+                <div class="error" *ngIf="username?.hasError('required') && username?.touched">
+                    * Username is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <span class="input-icon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input
+                        type="password"
+                        id="password"
+                        formControlName="password"
+                        placeholder="Enter your password"
+                        required
+                    />
+                </div>
+                <div class="error" *ngIf="password?.hasError('required') && password?.touched">
+                    * Password is required.
+                </div>
+            </div>
+            <button type="submit" class="btn">
+                Sign In
+            </button>
+            <p>
+                Don't have an account?
+                <a (click)="navigateToSignup()" class="signup">Sign Up</a>
+            </p>
+        </form>
+    </div>
+</div>
