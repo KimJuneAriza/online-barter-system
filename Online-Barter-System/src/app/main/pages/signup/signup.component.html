@@ -1,11 +1,4 @@
-<div *ngIf="loading" class="loading-container">
-    <!-- Replace with your custom loading animation or spinner -->
-    <div class="spinner">
-        <i class="fas fa-arrows-rotate"></i>
-    </div>
-    <p>Loading...</p>
-  </div>
-
+<app-spinner [show]="loading"></app-spinner>
 <div class="container">
     <header class="hero">
         <h1>Online Barter System</h1>
