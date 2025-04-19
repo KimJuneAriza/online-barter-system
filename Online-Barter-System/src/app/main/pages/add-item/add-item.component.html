@@ -1,0 +1,20 @@
+<div class="add-item-form">
+    <h2>Add New Item</h2>
+    <form [formGroup]="AddItemForm" (ngSubmit)="addItem()">
+      <label>
+        Title:
+        <input formControlName="itemName" type="text" placeholder="Item title" />
+      </label>
+  
+      <label>
+        Description:
+        <textarea formControlName="itemDescription" placeholder="Describe your item"></textarea>
+      </label>
+  
+      <div class="form-buttons">
+        <button type="submit" [disabled]="AddItemForm.invalid">Add Item</button>
+        <button type="button" (click)="onCancel()" class="cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

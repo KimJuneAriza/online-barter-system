@@ -1,0 +1,75 @@
+:host {
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* padding: 20px; */
+  }
+  .hero {
+    background: linear-gradient(135deg, #f05a28, #ec008c);
+    padding: 16px;
+  }
+  h2[mat-dialog-title] {
+    color: #f9f9f9;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+  
+  mat-dialog-content p {
+    font-size: 14px;
+    padding: 8px;
+    text-align: center;
+    color: #000;
+    margin: 0 auto;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+  
+  button[mat-raised-button] {
+    padding: 12px 30px;
+    background-color: #fff;
+    color: #ec008c;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[mat-raised-button]:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button[mat-button] {
+    border: 2px solid #ec008c;
+    padding: 12px 30px;
+    color: #ec008c;
+    background-color: #f9f9f9;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[mat-button]:hover {
+    background-color: #f05a28;
+    color: #fff;
+  }
+  
+  button {
+    font-weight: bold;
+  }
+  
+  mat-dialog-container {
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+  }
+  

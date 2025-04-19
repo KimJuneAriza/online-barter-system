@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('email');
-            $table->boolean('complete_profile')->default(false);
-            $table->string('password');
+            $table->string('name');
+            $table->string('description');
+            $table->string('category');
+            $table->string('status');
+            $table->string('owner');
+            $table->binary('image');
             $table->timestamps();
         });
     }

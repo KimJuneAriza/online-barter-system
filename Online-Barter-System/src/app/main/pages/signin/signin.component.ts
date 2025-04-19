@@ -52,7 +52,13 @@ export class SigninComponent implements OnInit{
       next: (response) => {
         console.log('Signin Successful: ', response);
         this.loading = false;
-        this.router.navigate(['/main/dashboard']);
+        if(response.user.complete){
+          this.router.navigate(['main/dashboard']);
+        }
+        else {
+          this.router.navigate(['/main/profile']);
+        }
+        
       },
       error: (error) => {
         console.log('Signin Error: ', error);

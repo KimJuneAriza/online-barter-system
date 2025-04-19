@@ -1,0 +1,27 @@
+<div class="profile-container">
+    <h2 class="profile-title">Complete Your Profile</h2>
+  
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
+      <input type="text" formControlName="full_name" placeholder="Full Name" class="form-control" />
+  
+      <input type="text" formControlName="phone" placeholder="Phone Number" class="form-control" />
+  
+      <select formControlName="gender" class="form-control">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+  
+      <input type="date" formControlName="dob" class="form-control" />
+  
+      <textarea formControlName="address" placeholder="Address" class="form-control"></textarea>
+  
+      <input type="file" (change)="onFileChange($event)" class="file-input" />
+  
+      <button type="submit" [disabled]="profileForm.invalid" class="submit-btn">
+        Save Profile
+      </button>
+    </form>
+  </div>
+  
