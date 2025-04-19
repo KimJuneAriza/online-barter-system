@@ -1,3 +1,4 @@
+<div class="main">
 <div class="profile-container">
     <h2 class="profile-title">Complete Your Profile</h2>
   
@@ -17,11 +18,16 @@
   
       <textarea formControlName="address" placeholder="Address" class="form-control"></textarea>
   
-      <input type="file" (change)="onFileChange($event)" class="file-input" />
+      <div class="file-input">
+        <input type="file" id="file"(change)="onFileChange($event)" hidden/>
+        <label for="file" class="fileButton">Choose Profile Picture</label>
+        <span class="filename">{{selectedFile?.name || 'no file choosen'}}</span>
+    </div>
   
       <button type="submit" [disabled]="profileForm.invalid" class="submit-btn">
         Save Profile
       </button>
     </form>
   </div>
+</div>
   

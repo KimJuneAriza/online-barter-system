@@ -1,3 +1,9 @@
+.main {
+  box-sizing: border-box;
+  height: 100vh;
+  background: linear-gradient(135deg, #f05a28, #ec008c);
+  padding-top: 120px;
+}
 .profile-container {
     max-width: 600px;
     margin: 0 auto;
@@ -19,6 +25,13 @@
     flex-direction: column;
     gap: 16px;
   }
+
+  .profile-form .form-control,
+  .profile-form .file-input,
+  .profile-form .submit-btn {
+   width: 100%;
+   box-sizing: border-box;
+}
   
   .form-control {
     width: 100%;
@@ -29,7 +42,20 @@
   }
   
   .file-input {
-    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 0;
+  }
+
+  .fileButton {
+    border-radius: 8px 0 0 8px;
+    padding: 10px 12px;
+    background-color: #f05a28;
+    color: #fff;
+  }
+
+  .filename {
+    margin-left: 20px;
   }
   
   .submit-btn {
