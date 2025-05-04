@@ -29,35 +29,38 @@
     margin-top: 12px;
   }
   
-  button[mat-raised-button] {
+  .logout {
     padding: 12px 30px;
     background-color: #fff;
     color: #ec008c;
-    border: none;
-    border-radius: 25px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button[mat-raised-button]:hover {
-    background-color: #f1f1f1;
-  }
-  
-  button[mat-button] {
     border: 2px solid #ec008c;
-    padding: 12px 30px;
-    color: #ec008c;
-    background-color: #f9f9f9;
     border-radius: 25px;
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
-  button[mat-button]:hover {
+  .logout:hover {
     background-color: #f05a28;
     color: #fff;
+    border: none;
+  }
+
+  .cancel {
+    border: none;
+    padding: 12px 30px;
+    background-color: #f05a28;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cancel:hover {
+    border: 2px solid #ec008c;
+    background-color: #fff;
+    color: #ec008c;
   }
   
   button {

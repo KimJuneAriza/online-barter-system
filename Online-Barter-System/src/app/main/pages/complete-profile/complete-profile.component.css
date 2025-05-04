@@ -1,8 +1,8 @@
 .main {
   box-sizing: border-box;
-  height: 100vh;
+  /* height: 100vh; */
   background: linear-gradient(135deg, #f05a28, #ec008c);
-  padding-top: 120px;
+  padding: 80px 0;
 }
 .profile-container {
     max-width: 600px;
@@ -26,14 +26,22 @@
     gap: 16px;
   }
 
-  .profile-form .form-control,
+  .profile-form .form-input,
   .profile-form .file-input,
   .profile-form .submit-btn {
    width: 100%;
    box-sizing: border-box;
 }
-  
-  .form-control {
+.error {
+  color: rgb(212, 5, 5);
+  font-size: 0.9em;
+  margin: 3px;
+}
+.form-label {
+  display: block;
+  padding: 2px;
+}
+  .form-input {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid #ccc;
@@ -53,6 +61,13 @@
     background-color: #f05a28;
     color: #fff;
   }
+
+  .disabled-button {
+    background-color: gray !important;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
 
   .filename {
     margin-left: 20px;

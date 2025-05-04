@@ -12,14 +12,32 @@ import { UserService } from '../../services/user.service';
 export class CompleteProfileComponent {
   
   selectedFile: File | null = null;
+  fileTouched = false;
+  showError = false;
 
   profileForm: FormGroup = new FormGroup({
     full_name: new FormControl('', [Validators.required]),
-    phone: new FormControl(''),
-    gender: new FormControl(''),
-    dob: new FormControl(''),
-    address: new FormControl(''),
+    phone: new FormControl('', [Validators.required]),
+    gender: new FormControl('', [Validators.required]),
+    dob: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
   });
+
+  get full_name(){
+    return this.profileForm.get('full_name');
+  }
+  get phone(){
+    return this.profileForm.get('phone');
+  }
+  get gender(){
+    return this.profileForm.get('gender');
+  }
+  get dob(){
+    return this.profileForm.get('dob');
+  }
+  get address(){
+    return this.profileForm.get('address');
+  }
 
   constructor(
     private router: Router,
@@ -27,10 +45,21 @@ export class CompleteProfileComponent {
   ){}
 
   onFileChange(event: any) {
-    this.selectedFile = event.target.files[0];
+    this.fileTouched = true;
+    const file = event.target.files[0];
+    this.selectedFile = file || null;
+    this.showError = !file;
   }
-
+  onBlur(): void {
+    this.fileTouched = true;
+    if (!this.selectedFile) {
+      this.showError = true;
+    }
+  }
+  
+  loading: boolean = false;
   onSubmit() {
+    this.loading = true;
     const formData = new FormData();
     
     Object.entries(this.profileForm.value).forEach(([key, value]) =>

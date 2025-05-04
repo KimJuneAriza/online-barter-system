@@ -52,7 +52,7 @@ export class SigninComponent implements OnInit{
       next: (response) => {
         console.log('Signin Successful: ', response);
         this.loading = false;
-        if(response.user.complete){
+        if(response.user.complete_profile){
           this.router.navigate(['main/dashboard']);
         }
         else {
