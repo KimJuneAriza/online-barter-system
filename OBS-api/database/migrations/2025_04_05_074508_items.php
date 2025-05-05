@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('category');
             $table->string('status');
             $table->string('owner');
+            $table->string('filename');
             $table->binary('image');
             $table->timestamps();
         });

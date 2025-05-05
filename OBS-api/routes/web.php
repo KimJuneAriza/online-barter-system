@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 $router->post('/signup', 'UsersController@userSignup');
 $router->post('/signin', 'UsersController@userSignin');
 
-$router->post('/add-item', 'AddItemController@addItem');
+$router->post('/add-item', 'AddItemController@upload');
 
 $router->post('/profile', 'UsersController@completeProfile');
 

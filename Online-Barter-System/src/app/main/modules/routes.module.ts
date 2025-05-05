@@ -27,7 +27,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: CompleteProfileComponent
+    component: CompleteProfileComponent,
+    canActivate: [GuestGuard]
   },
   { path: 'dashboard',
     component: DashboardComponent,

@@ -1,6 +1,6 @@
 <div class="add-item-form">
-    <h2>Add New Item</h2>
-    <form [formGroup]="AddItemForm" (ngSubmit)="addItem()">
+    <form [formGroup]="AddItemForm" (ngSubmit)="addItem()" enctype="multipart/form-data">
+      <h2>Add New Item</h2>
       <label>
         Title:
         <input formControlName="itemName" type="text" placeholder="Item title" />
@@ -10,6 +10,18 @@
         Description:
         <textarea formControlName="itemDescription" placeholder="Describe your item"></textarea>
       </label>
+
+      <label>
+        Category:
+        <input formControlName="itemCategory" type="text" placeholder="ex. furnitures" />
+      </label>
+
+      <div class="file-input">
+        <label> Image: </label>
+        <input type="file" id="file" (change)="onFileChange($event)" hidden accept="image/*"/>
+        <label for="file" class="fileButton">Choose Item Image</label>
+        <span class="filename">{{ selectedFile?.name || 'no file chosen' }}</span>
+      </div>
   
       <div class="form-buttons">
         <button type="submit" [disabled]="AddItemForm.invalid">Add Item</button>

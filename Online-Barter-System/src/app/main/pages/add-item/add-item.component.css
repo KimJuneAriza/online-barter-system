@@ -1,88 +1,85 @@
-/* Fullscreen overlay container */
 .add-item-form {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; /* Ensure it's on top */
-  }
-  
-  /* Inner form container */
-  .add-item-form form {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Headline */
-  .add-item-form h2 {
-    margin-top: 0;
-    text-align: center;
-    color: #333;
-  }
-  
-  /* Input styles */
-  .add-item-form label {
-    display: block;
-    margin: 1rem 0;
-    font-weight: 500;
-    color: #333;
-  }
-  
-  .add-item-form input,
-  .add-item-form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    margin-top: 0.25rem;
-    box-sizing: border-box;
-    resize: vertical;
-  }
-  
-  .add-item-form button {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #4CAF50;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-  }
-  
-  .add-item-form button:disabled {
-    background-color: #aaa;
-    cursor: not-allowed;
-  }
-  
-  .add-item-form button:hover:not(:disabled) {
-    background-color: #45a049;
-  }
-  .form-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .cancel-btn {
-    background-color: #f44336;
-  }
-  
-  .cancel-btn:hover {
-    background-color: #d32f2f;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Above other elements */
+}
+
+.add-item-form form {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.add-item-form h2 {
+  text-align: center;
+  margin-bottom: 1rem 0;
+}
+
+.add-item-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.add-item-form input,
+.add-item-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+button {
+  flex: 1 1 50%;  /* grow and shrink equally, base width 50% */
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"] {
+  background-color: #2ecc71;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #27ae60;
+}
+
+.cancel-btn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background-color: #d5d5d5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

@@ -34,16 +34,13 @@ export class DashboardComponent implements OnInit{
     });
   }
   
-
-
-
-  // showAddItem: boolean = false;
-  // AddItem(){
-  //   this.showAddItem = true;
-  // }
-  // onCancel(): void {
-  //   this.showAddItem = false;
-  // }
+  showAddItem: boolean = false;
+  AddItem(){
+    this.showAddItem = true;
+  }
+  onCancel(): void {
+    this.showAddItem = false;
+  }
 
   loading: boolean = false;
   onLogout(): void {
@@ -59,18 +56,18 @@ export class DashboardComponent implements OnInit{
     });
   }
 
-  // listings = [
-  //   { image: 'assets/images/shoes.jpg', title: 'Running Shoes', status: 'Available' },
-  //   { image: 'assets/images/headphones.jpg', title: 'Bluetooth Headphones', status: 'Pending' },
-  //   { image: 'assets/images/book.jpg', title: 'Science Fiction Book', status: 'Available' },
-  //   { image: 'assets/images/jacket.jpg', title: 'Winter Jacket', status: 'New' },
-  //   { image: 'assets/images/mug.jpg', title: 'Ceramic Mug', status: 'Available' },
-  //   { image: 'assets/images/lamp.jpg', title: 'Desk Lamp', status: 'Traded' },
-  // ];
+  listings = [
+    { image: 'assets/images/shoes.jpg', title: 'Running Shoes', status: 'Available' },
+    { image: 'assets/images/headphones.jpg', title: 'Bluetooth Headphones', status: 'Pending' },
+    { image: 'assets/images/book.jpg', title: 'Science Fiction Book', status: 'Available' },
+    { image: 'assets/images/jacket.jpg', title: 'Winter Jacket', status: 'New' },
+    { image: 'assets/images/mug.jpg', title: 'Ceramic Mug', status: 'Available' },
+    { image: 'assets/images/lamp.jpg', title: 'Desk Lamp', status: 'Traded' },
+  ];
 
-  // offers = [
-  //   { user: 'Alice', item: 'Yoga Mat', status: 'Pending' },
-  //   { user: 'Bob', item: 'Kitchen Blender', status: 'Accepted' },
-  //   { user: 'Charlie', item: 'Vintage Clock', status: 'Declined' },
-  // ];
+  offers = [
+    { user: 'Alice', item: 'Yoga Mat', status: 'Pending' },
+    { user: 'Bob', item: 'Kitchen Blender', status: 'Accepted' },
+    { user: 'Charlie', item: 'Vintage Clock', status: 'Declined' },
+  ];
 }

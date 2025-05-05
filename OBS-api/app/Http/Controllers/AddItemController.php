@@ -1,26 +1,31 @@
 <?php
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Item;
 
 class AddItemController extends Controller
 {
-    public function addItem(Request $request)
-{
-    $this->validate($request, [
-        'name' => 'required|string',
-        'description' => 'required|string',
-        'owner' => 'required|string',
-    ]);
+    public function upload(Request $request)
+    {
+        if (!$request->hasFile('image')) {
+            return response()->json(['error' => 'No image uploaded'], 400);
+        }
 
-    DB::table('items')->insert([
-        'name' => $request->input('name'),
-        'description' => $request->input('description'),
-        'owner' => $request->input('owner'),
-    ]);
+        $file = $request->file('image');
 
-    return response()->json(['message' => 'Item added successfully']);
+        $item = new Item();
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->owner = $request->input('owner');
+        $item->category = $request->input('category');
+        $item->status = $request->input('status');
+        $item->filename = $file->getClientOriginalName();
+        $item->image = file_get_contents($file->getRealPath());
+
+        $item->save();
+
+        return response()->json(['message' => 'Item uploaded successfully']);
+    }
 }
 
-}

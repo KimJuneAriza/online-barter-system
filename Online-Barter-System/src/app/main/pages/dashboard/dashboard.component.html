@@ -1,4 +1,5 @@
 <app-spinner [show]="loading"></app-spinner>
+<app-add-item *ngIf="showAddItem" (cancel)="onCancel()"></app-add-item>
 
 <div class="dashboard-container">
   <div class="dashboard-wrapper">
@@ -7,9 +8,6 @@
         <h4>Online Barter System</h4>
         <h1 class="dashboard-title">Dashboard</h1>
       </div>
-
-      <!-- <img *ngIf="profile.profile_photo_url" [src]="profile.profile_photo_url" alt="Profile" />
- -->
       
       <div class="user-info">
         <img [src]="profile?.profile_photo_url || 'default-profile.png'" alt="Profile" class="profile-pic">
@@ -20,12 +18,12 @@
       </div>
     </div>
 
-    <!-- <app-add-item *ngIf="showAddItem" (cancel)="onCancel()"></app-add-item> 
+    <div class="add_listing_button_container">
+      <button class="add_listing_button" (click)="AddItem()">
+        Add To<br/>Listings</button>
+    </div>
 
-    <div class="button-container">
-      <button (click)="AddItem()">Add Item</button>
-    </div> -->
-    <!-- <div class="summary-grid">
+    <div class="summary-grid">
       <div class="summary-card">
         <h3>Listings</h3>
         <p>24</p>
@@ -64,6 +62,6 @@
           <p>Status: {{ offer.status }}</p>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </div>

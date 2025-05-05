@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AddItemComponent implements OnInit{
 
+  selectedFile: File | null = null;
   currentUser: any;
   
     constructor(private userService: UserService, private itemsService: ItemsService, private router: Router) {}
@@ -24,8 +25,16 @@ export class AddItemComponent implements OnInit{
 
   AddItemForm: FormGroup = new FormGroup ({
     itemName: new FormControl ('', [Validators.required]),
-    itemDescription: new FormControl ('', [Validators.required])
+    itemDescription: new FormControl ('', [Validators.required]),
+    itemCategory: new FormControl ('', [Validators.required])
   })
+
+  onFileChange(event: Event): void {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      this.selectedFile = fileInput.files[0];
+    }
+  }
 
   @Output() cancel = new EventEmitter<void>();
 
@@ -33,32 +42,30 @@ export class AddItemComponent implements OnInit{
     this.cancel.emit();
   }  
 
+  status = 'available';
   addItem(): void {
     if (this.AddItemForm.invalid || !this.currentUser) {
       return;
     }
-  
-    const itemData = {
-      name: this.AddItemForm.value.itemName,
-      description: this.AddItemForm.value.itemDescription,
-      owner: this.currentUser.username
-    };
+    if (!this.selectedFile) return;
+
+    const itemData = new FormData();
+
+    itemData.append('name', this.AddItemForm.value.itemName);
+    itemData.append('description', this.AddItemForm.value.itemDescription);
+    itemData.append('owner', this.currentUser.username);
+    itemData.append('category', this.AddItemForm.value.itemCategory);
+    itemData.append('status', this.status);
+    itemData.append('image', this.selectedFile);
   
     this.itemsService.addItem(itemData).subscribe({
       next: (res) => {
         console.log('Item added:', res);
-        // optionally reset form or notify user
-        // const currentUrl = this.router.url;
-        // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        // this.router.navigate([currentUrl]);
-  // });
       },
       error: (err) => {
         console.error('Failed to add item:', err);
       }
     });
-
     this.cancel.emit();
-
 }
 }

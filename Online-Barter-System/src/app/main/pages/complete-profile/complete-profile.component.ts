@@ -83,6 +83,7 @@ export class CompleteProfileComponent {
     this.userService.completeProfile(formData).subscribe({
       next: (response) => {
         console.log('Profile updated:', response);
+        console.log(currentUser.complete_profile);
         this.router.navigate(['/main/dashboard']);
       },
       error: (error) => {
