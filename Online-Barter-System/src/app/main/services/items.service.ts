@@ -7,13 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class ItemsService {
 
-  private apiUrl = 'http://localhost:8000/add-item';
+  private addItemUrl = 'http://localhost:8000/add-item';
+  private getItemsUrl = 'http://localhost:8000/items';
 
   constructor(private http: HttpClient) { }
 
-  addItem(itemData: any): Observable<any> {
-    return this.http.post(this.apiUrl, itemData);
+  addItem(itemData: FormData): Observable<any> {
+    return this.http.post(this.addItemUrl, itemData);
   }
-  
+
+  getItems(): Observable<any[]> {
+    return this.http.get<any[]>(this.getItemsUrl);
+  }
 
 }

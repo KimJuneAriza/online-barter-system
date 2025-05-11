@@ -46,10 +46,10 @@
       <div class="listings-section">
         <h2>Active Listings</h2>
         <div class="listings-grid">
-          <div class="listing-card" *ngFor="let item of listings">
-            <img [src]="item.image" alt="Product">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.status }}</p>
+          <div class="listing-card" *ngFor="let item of items">
+            <h3>{{ item.name }}</h3>
+            <img [src]="item.image" [alt]="item.filename" width="200">
+            <p>{{ item.description }}</p>
           </div>
         </div>
       </div>

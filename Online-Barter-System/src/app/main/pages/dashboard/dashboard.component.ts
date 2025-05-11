@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmLogoutDialogComponent } from '../../shared/confirm-logout-dialog/confirm-logout-dialog.component';
+import { ItemsService } from '../../services/items.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,10 +15,15 @@ export class DashboardComponent implements OnInit{
 
   user: any;
   profile: any;
+  items: any[] = [];
 
-  constructor(private userService: UserService, private router: Router, private dialog: MatDialog) {}
+  constructor(private userService: UserService, private router: Router, private dialog: MatDialog, private itemService: ItemsService) {}
 
   ngOnInit() {
+    this.itemService.getItems().subscribe(data => {
+      this.items = data;
+    });
+    
     this.userService.currentUser$.subscribe(user => {
       this.user = user;
       if (user && user.id) {

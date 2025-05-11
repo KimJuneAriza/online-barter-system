@@ -35,6 +35,7 @@ export class AddItemComponent implements OnInit{
       this.selectedFile = fileInput.files[0];
     }
   }
+  
 
   @Output() cancel = new EventEmitter<void>();
 
@@ -48,6 +49,9 @@ export class AddItemComponent implements OnInit{
       return;
     }
     if (!this.selectedFile) return;
+
+    const fileSizeInMB = this.selectedFile.size / (1024 * 1024); // Convert size from bytes to MB
+    console.log('File size in MB:', fileSizeInMB);
 
     const itemData = new FormData();
 

@@ -26,3 +26,5 @@ $router->post('/profile', 'UsersController@completeProfile');
 
 $router->post('/profile/fetch', 'UsersController@fetchProfile');
 
+$router->get('/items', 'AddItemController@getItems');
+
